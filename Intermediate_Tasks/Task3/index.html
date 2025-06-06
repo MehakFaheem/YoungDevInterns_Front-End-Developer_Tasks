@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Elements</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+  <div class="logo">YoungDevInterns</div>
+  <div class="dropdown">
+    <button class="dropbtn">Menu ▾</button>
+    <div class="dropdown-content">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Tasks</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<main class="main-bg">
+  <h1>Welcome!</h1>
+  <p>Click below to view a special message!</p>
+  <button id="openModalBtn">Show Modal</button>
+</main>
+
+<!-- Modal -->
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span id="closeModalBtn" class="close">&times;</span>
+    <h2>You're doing great!</h2>
+    <p>Nice to meet you :)</p>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-container">
+    <p>&copy; 2025 YoungDevInterns. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
