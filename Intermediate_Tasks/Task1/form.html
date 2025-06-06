@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Validation</title>
+</head>
+<body>
+  <h2 style="text-align: center;">User Registration Form</h2>
+  <form id="myForm">
+    <input type="text" id="name" placeholder="Name">
+    <div class="error" id="nameError"></div>
+
+    <input type="email" id="email" placeholder="Email">
+    <div class="error" id="emailError"></div>
+
+    <input type="text" id="phone" placeholder="Phone">
+    <div class="error" id="phoneError"></div>
+
+    <input type="password" id="password" placeholder="Password">
+    <div class="error" id="passwordError"></div>
+
+    <input type="password" id="confirmPassword" placeholder="Confirm Password">
+    <div class="error" id="confirmPasswordError"></div>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    document.getElementById("myForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      // Clearing old errors
+      document.querySelectorAll(".error").forEach(el => el.textContent = "");
+
+      let isValid = true;
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+
+      if (name === "" || !/^[a-zA-Z ]+$/.test(name)) {
+        document.getElementById("nameError").textContent = "Please enter a valid name";
+        isValid = false;
+      }
+
+      if (email === "" || !/^\S+@\S+\.\S+$/.test(email)) {
+        document.getElementById("emailError").textContent = "Please enter a valid email";
+        isValid = false;
+      }
+
+      if (phone === "" || !/^\d{11}$/.test(phone)) {
+        document.getElementById("phoneError").textContent = "Enter a valid 10-digit phone number";
+        isValid = false;
+      }
+
+      if (password.length < 6) {
+        document.getElementById("passwordError").textContent = "Password must be at least 6 characters";
+        isValid = false;
+      }
+
+      if (confirmPassword !== password) {
+        document.getElementById("confirmPasswordError").textContent = "Passwords do not match";
+        isValid = false;
+      }
+
+      if (isValid) {
+        alert("Form submitted successfully!");
+      }
+    });
+  </script>
+</body>
+</html>
